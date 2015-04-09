@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DexInfo</class>
+ <widget class="QWidget" name="DexInfo">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>581</width>
+    <height>422</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>581</width>
+    <height>422</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>581</width>
+    <height>422</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>DexInformation</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Andy/Desktop/201.png</normaloff>C:/Users/Andy/Desktop/201.png</iconset>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>561</width>
+     <height>401</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="title">
+    <string>DexInfo</string>
+   </property>
+   <widget class="QLabel" name="lab_magic">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>20</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Magic标识</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lab_checksum">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>50</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>校验码</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lab_dex_file_size">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>82</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>DEX文件大小</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lab_header_size">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>112</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>文件头长度</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lab_endian_tag">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>144</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>字节序标记</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_link_size">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>176</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>链接段大小</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_link_off">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>208</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>链接段基地址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_map_off">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>238</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Map数据基地址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_string_ids_size">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>269</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>字符串列表的字符串数</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_string_ids_off">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>301</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>字符串列表表基地址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_field_ids_size">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>114</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>字段列表里字段数</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_proto_ids_size">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>51</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>原型列表里原型数</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_method_ids_size">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>177</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>方法列表里方法数</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_field_ids_off">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>145</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>字段列表基地址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_method_ids_off">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>207</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>方法列表基地址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_data_size">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>302</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>数据段的大小</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_proto_ids_off">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>83</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>原型列表基地址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_type_ids_off">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>20</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>类型列表基地址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_class_defs_size">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>238</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>类定义类表中类的数</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_class_defs_off">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>271</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>类定义列表基地址</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_type_ids_size">
+    <property name="geometry">
+     <rect>
+      <x>6</x>
+      <y>333</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>类型列表中类型数</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_data_off">
+    <property name="geometry">
+     <rect>
+      <x>287</x>
+      <y>334</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>数据段基地址</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_magic">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>14</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_checksum">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>45</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_file_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>76</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_header_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>107</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_endian_tag">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>138</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_link_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>170</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_link_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>201</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_map_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>232</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_string_ids_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>264</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_string_ids_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>296</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_type_ids_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>138</x>
+      <y>327</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_class_defs_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>265</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_proto_ids_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>77</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_method_ids_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>202</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_field_ids_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>139</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_proto_ids_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>46</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_field_ids_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>108</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_type_ids_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>15</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_data_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>297</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_class_defs_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>233</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_method_ids_size">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>171</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_data_off">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>408</x>
+      <y>328</y>
+      <width>141</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_sha">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>366</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>SHA-1签名</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="text_sha">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>360</y>
+      <width>471</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
