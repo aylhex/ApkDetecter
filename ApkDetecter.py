@@ -8,6 +8,7 @@ import sys
 import hashlib
 import thread
 import shutil
+import subprocess
 from PyQt4 import QtCore, QtGui
 from AnalysisXML.AXML import AXML
 from DexInfo import DexInfoForm
@@ -16,7 +17,7 @@ from AnalysisDEX.InitDEX import InitDEX
 from CheckProtect import CheckProtect
 from AnalysisCSN.CSN import CSN
 from GUI.apkdetecter_ui import Ui_APKDetecter
-
+from platform import system
 
 
 
@@ -52,11 +53,21 @@ class ApkDetecterForm(QtGui.QMainWindow):
 
     def unzip(self, apkpath):
         apkpath = unicode(apkpath, "utf8")
-        cmd = "tool\\7z.exe x %s -y -o%s *.dex AndroidManifest.xml lib META-INF assets"
-        print cmd % (apkpath, self.unpackDir)
+
+        path7zip = ""
+        # This all should likely just become python code, however
+        # in the mean time, attempt to find 7zip via a `which` command
+        # on non-Windows environments
+        if system() == "Windows":
+            path7zip = "tool\\7z.exe"
+        else:
+            path7zip = subprocess.check_output(["which","7za"]).rstrip()
+
+        cmd = "%s x %s -y -o%s *.dex AndroidManifest.xml lib META-INF assets"
+        print cmd % (path7zip, apkpath, self.unpackDir)
         self.ui.progressBar.setMaximum(29)
         thread.start_new_thread(self.probar_thread, (3, 30))
-        os.system(cmd % (apkpath, self.unpackDir))
+        os.system(cmd % (path7zip, apkpath, self.unpackDir))
 
 
     def Init_Main_text(self):
