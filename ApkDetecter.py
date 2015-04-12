@@ -27,8 +27,7 @@ class ApkDetecterForm(QtGui.QMainWindow):
         self._want_to_close = True
         self.dexheader = {}
         self.loadfile_path = ""
-        #self.unpackDir = tempfile.mktemp()
-        self.unpackDir = ur"d:\APK"
+        self.unpackDir = tempfile.mkdtemp()
 
         self.ui = Ui_APKDetecter()
         self.ui.setupUi(self)
@@ -166,9 +165,8 @@ class ApkDetecterForm(QtGui.QMainWindow):
             file.close()
             return strMd5
         except:
+            # TODO: "Sorry, error calculating MD5!"
             return u"Sorry,计算出错!"
-
-
 
 
 
