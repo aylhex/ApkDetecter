@@ -37,9 +37,19 @@ class ApkDetecterForm(QtGui.QMainWindow):
         self.ui.apk_info.clicked.connect(self.apkinfo_dialog)
         self.ui.extend_info.clicked.connect(self.extendinfo_dialog)
 
+        self.apkinfo = None
+        self.dexinfo = None
+
     def closeEvent(self, evnt):
         if self._want_to_close:
             super(ApkDetecterForm, self).closeEvent(evnt)
+
+            # Clean up UI if present
+            if self.apkinfo and self.apkinfo.isVisible():
+                self.apkinfo.close()
+            if self.dexinfo and self.dexinfo.isVisible():
+                self.dexinfo.close()
+
             self.clearfiles(self.unpackDir)
             print "Andy"
 
@@ -241,9 +251,8 @@ class ApkDetecterForm(QtGui.QMainWindow):
                 self.apkinfo.ui.edt_version_num.setText(axml_analysis.get_androidversion_code())
                 self.apkinfo.ui.edt_version_need.setText(axml_analysis.getMinSdkVersion())
 
-
-
         self.apkinfo.show()
+
 
     def extendinfo_dialog(self):
         self.dexinfo = DexInfoForm()
