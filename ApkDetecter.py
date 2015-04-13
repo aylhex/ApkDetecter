@@ -287,7 +287,24 @@ class ApkDetecterForm(QtGui.QMainWindow):
 
 if __name__ == "__main__":
 
+    # Attempt to detect user Locale
+    locale = QtCore.QSettings().value("locale/userLocale").toString()
+    if not locale:
+        locale = 'en'
+    else:
+        locale = locale[0:2]
+    localePath = os.path.join(os.path.dirname(__file__), 'i18n/', 
+              '{}.qm'.format(locale))
+
     app = QtGui.QApplication(sys.argv)
+
+    if os.path.exists(localePath):
+        translator = QtCore.QTranslator()
+        if translator.load(localePath):
+            app.installTranslator(translator)
+        else:
+            print 'Failed to load translator - defaulting to zh!'
+
     myapp = ApkDetecterForm()
     myapp.show()
     sys.exit(app.exec_())
