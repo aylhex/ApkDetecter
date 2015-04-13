@@ -260,4 +260,82 @@
         <translation>File SHA1</translation>
     </message>
 </context>
+<context>
+    <name>ProtectDictionary</name>
+    <message>
+        <location filename="CheckProtect.py" line="25"/>
+        <source>è¯¥APKå·²å åº=&gt;æ¢æ¢å åº</source>
+        <translation>APK is Packed =&gt; Bangcle/SecNeo</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="28"/>
+        <source>è¯¥APKå·²å åº=&gt;éä»ç¾å åº</source>
+        <translation>APK is Packed =&gt; Qihoo360 Packer</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="29"/>
+        <source>è¯¥APKå·²å åº=&gt;ç½ç§¦å åº</source>
+        <translation>APK is Packed =&gt; Pass Pay Shield Packer</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="30"/>
+        <source>è¯¥APKå·²å åº=&gt;è¾è®¯å åº</source>
+        <translation>APK is Packed =&gt; Netqin Packer</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="32"/>
+        <source>è¯¥APKå·²å åº=&gt;å¨è¿¦å åº</source>
+        <translation>APK is Packed =&gt; Tencent Packer</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="33"/>
+        <source>è¯¥APKå·²å åº=&gt;é¿éå åº</source>
+        <translation>APK is Packed =&gt; Naga Packer</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="34"/>
+        <source>è¯¥APKå·²å åº=&gt;ç¾åº¦å åº</source>
+        <translation>Apk is Packed =&gt; Alibaba Packer</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="26"/>
+        <source>è¯¥APKå·²å åº=&gt;æ¢æ¢å åº(2)</source>
+        <translation type="obsolete">APK is Packed =&gt; APKProtector</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="27"/>
+        <source>è¯¥APKå·²å åº=&gt;360å åº</source>
+        <translation>APK is Packed =&gt; Baidu Packer</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="26"/>
+        <source>è¯¥APKå·²å åº=&gt;æ¢æ¢å åº(APKProtect)</source>
+        <translation>APK is Packed =&gt; APKProtector</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="31"/>
+        <source>è¯¥APKå·²å åº=&gt;è¾è®¯å åº(Ijimai)</source>
+        <translation type="obsolete">APK is Packed =&gt; Ijiami</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="31"/>
+        <source>è¯¥APKå·²å åº=&gt;è¾è®¯å åº(Ijiami)</source>
+        <translation>APK is Packed =&gt; Ijiami</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="89"/>
+        <source>APKProtectå åº</source>
+        <translation>APKProtected (potentially only with bad code injected)</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="103"/>
+        <source>çä¼¼æªç¥å å¯</source>
+        <translation>Potentially Unknown Protector Used</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="106"/>
+        <source>è¯¥APKæªå å¯</source>
+        <translation>No Protections Detected</translation>
+    </message>
+</context>
 </TS>
