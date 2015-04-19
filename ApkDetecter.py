@@ -8,6 +8,7 @@ import sys
 import hashlib
 import thread
 import shutil
+import subprocess
 from PyQt4 import QtCore, QtGui
 from AnalysisXML.AXML import AXML
 from DexInfo import DexInfoForm
@@ -16,7 +17,7 @@ from AnalysisDEX.InitDEX import InitDEX
 from CheckProtect import CheckProtect
 from AnalysisCSN.CSN import CSN
 from GUI.apkdetecter_ui import Ui_APKDetecter
-
+from platform import system
 
 
 
@@ -27,8 +28,7 @@ class ApkDetecterForm(QtGui.QMainWindow):
         self._want_to_close = True
         self.dexheader = {}
         self.loadfile_path = ""
-        #self.unpackDir = tempfile.mktemp()
-        self.unpackDir = ur"d:\APK"
+        self.unpackDir = tempfile.mkdtemp()
 
         self.ui = Ui_APKDetecter()
         self.ui.setupUi(self)
@@ -37,9 +37,19 @@ class ApkDetecterForm(QtGui.QMainWindow):
         self.ui.apk_info.clicked.connect(self.apkinfo_dialog)
         self.ui.extend_info.clicked.connect(self.extendinfo_dialog)
 
+        self.apkinfo = None
+        self.dexinfo = None
+
     def closeEvent(self, evnt):
         if self._want_to_close:
             super(ApkDetecterForm, self).closeEvent(evnt)
+
+            # Clean up UI if present
+            if self.apkinfo and self.apkinfo.isVisible():
+                self.apkinfo.close()
+            if self.dexinfo and self.dexinfo.isVisible():
+                self.dexinfo.close()
+
             self.clearfiles(self.unpackDir)
             print "Andy"
 
@@ -53,11 +63,21 @@ class ApkDetecterForm(QtGui.QMainWindow):
 
     def unzip(self, apkpath):
         apkpath = unicode(apkpath, "utf8")
-        cmd = "tool\\7z.exe x %s -y -o%s *.dex AndroidManifest.xml lib META-INF assets"
-        print cmd % (apkpath, self.unpackDir)
+
+        path7zip = ""
+        # This all should likely just become python code, however
+        # in the mean time, attempt to find 7zip via a `which` command
+        # on non-Windows environments
+        if system() == "Windows":
+            path7zip = "tool\\7z.exe"
+        else:
+            path7zip = subprocess.check_output(["which","7za"]).rstrip()
+
+        cmd = "%s x %s -y -o%s *.dex AndroidManifest.xml lib META-INF assets"
+        print cmd % (path7zip, apkpath, self.unpackDir)
         self.ui.progressBar.setMaximum(29)
         thread.start_new_thread(self.probar_thread, (3, 30))
-        os.system(cmd % (apkpath, self.unpackDir))
+        os.system(cmd % (path7zip, apkpath, self.unpackDir))
 
 
     def Init_Main_text(self):
@@ -166,9 +186,8 @@ class ApkDetecterForm(QtGui.QMainWindow):
             file.close()
             return strMd5
         except:
+            # TODO: "Sorry, error calculating MD5!"
             return u"Sorry,计算出错!"
-
-
 
 
 
@@ -232,9 +251,8 @@ class ApkDetecterForm(QtGui.QMainWindow):
                 self.apkinfo.ui.edt_version_num.setText(axml_analysis.get_androidversion_code())
                 self.apkinfo.ui.edt_version_need.setText(axml_analysis.getMinSdkVersion())
 
-
-
         self.apkinfo.show()
+
 
     def extendinfo_dialog(self):
         self.dexinfo = DexInfoForm()
@@ -269,7 +287,24 @@ class ApkDetecterForm(QtGui.QMainWindow):
 
 if __name__ == "__main__":
 
+    # Attempt to detect user Locale
+    locale = QtCore.QSettings().value("locale/userLocale").toString()
+    if not locale:
+        locale = 'en'
+    else:
+        locale = locale[0:2]
+    localePath = os.path.join(os.path.dirname(__file__), 'i18n/', 
+              '{}.qm'.format(locale))
+
     app = QtGui.QApplication(sys.argv)
+
+    if os.path.exists(localePath):
+        translator = QtCore.QTranslator()
+        if translator.load(localePath):
+            app.installTranslator(translator)
+        else:
+            print 'Failed to load translator - defaulting to zh!'
+
     myapp = ApkDetecterForm()
     myapp.show()
     sys.exit(app.exec_())

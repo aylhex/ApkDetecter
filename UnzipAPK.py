@@ -3,6 +3,8 @@ __author__ = 'Andy'
 import os
 import struct
 import tempfile
+import subprocess
+from platform import system
 
 class UnzipAPK():
 
@@ -83,10 +85,16 @@ class UnzipAPK():
 
 
     def dexdump(self):
-        cmd = 'tool\\dexdump.exe -d %s > %s'
+        pathdexdump = ""
+        if system() == "Windows":
+            pathdexdump = "tool\\dexdump.exe"
+        else:
+            pathdexdump = subprocess.check_output(["which","dexdump"]).rstrip()
+
+        cmd = '%s -d %s > %s'
         dexpath = os.path.join(self.unpackDir, "classes.dex")
         if os.path.exists(dexpath):
-            os.system(cmd % (dexpath, self.unpackDir + os.path.sep +"classes.txt"))
+            os.system(cmd % (pathdexdump, dexpath, self.unpackDir + os.path.sep +"classes.txt"))
 
     def getallname(self):
 

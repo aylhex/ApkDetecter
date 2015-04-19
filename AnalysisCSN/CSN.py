@@ -3,7 +3,16 @@ __author__ = 'Andy'
 import os
 from hashlib import md5, sha1, sha256
 from base64 import b64encode
-from core.chilkatCert.win32 import chilkat
+from platform import system, architecture
+
+SYS = system()
+if SYS == "Darwin":
+    from core.chilkatCert.mac import chilkat
+if SYS == "Windows":
+    if architecture()[0] == "32bit":
+        from core.chilkatCert.win32 import chilkat
+    elif architecture()[0] == "64bit":
+        from core.chilkatCert.win64 import chilkat
 
 BLACK_LIST_CSN = [
     ('936eacbe07f201df', 'Google测试证书(打包党)'),

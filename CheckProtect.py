@@ -4,17 +4,36 @@ __author__ = 'Andy'
 import os
 from UnzipAPK import UnzipAPK
 from AnalysisXML.AXML import AXML
+from PyQt4 import QtGui
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
+
+
 class CheckProtect():
 
     def __init__(self, apkPath):
         #self.apkPath = r"D:\original.apk"
         self.apkPath = apkPath
         self.protectflag = ""
-        self.protectflag_dict = {"libsecexe.so": u"该APK已加固=>梆梆加固", "libAPKProtect.so": u"该APK已加固=>APKProtect加固",
-                           "libprotectClass.so": u"该APK已加固=>360加固", "libNSaferOnly.so": u"该APK已加固=>通付盾加固",
-                           "libnqshield.so": u"该APK已加固=>网秦加固", "libshell.so": u"该APK已加固=>腾讯加固",
-                           "ijiami.dat": u"该APK已加固=>爱加密加固", "libddog.so": u"该APK已加固=>娜迦加固",
-                           "libmobisec.so": u"该APK已加固=>阿里加固", "libbaiduprotect.so": u"该APK已加固=>百度加固"}
+        self.protectflag_dict = {
+            "libsecexe.so": _translate("ProtectDictionary", "该APK已加固=>梆梆加固", None),
+            "libAPKProtect.so": _translate("ProtectDictionary", "该APK已加固=>梆梆加固(APKProtect)", None),
+            "libprotectClass.so": _translate("ProtectDictionary", "该APK已加固=>360加固", None),
+            "libNSaferOnly.so": _translate("ProtectDictionary", "该APK已加固=>通付盾加固", None),
+            "libnqshield.so": _translate("ProtectDictionary", "该APK已加固=>网秦加固", None),
+            "libshell.so": _translate("ProtectDictionary", "该APK已加固=>腾讯加固", None),
+            "ijiami.dat": _translate("ProtectDictionary", "该APK已加固=>腾讯加固(Ijiami)", None),
+            "libddog.so": _translate("ProtectDictionary", "该APK已加固=>娜迦加固", None),
+            "libmobisec.so": _translate("ProtectDictionary", "该APK已加固=>阿里加固", None),
+            "libbaiduprotect.so": _translate("ProtectDictionary", "该APK已加固=>百度加固", None),
+            "libmd.so": _translate("ProtectDictionary", "该APK已加固=>Medusa", None),
+            "LIAPPClient.sc": _translate("ProtectDictionary", "该APK已加固=>LIAPP", None)
+            }
 
     def getactivity(self, path):
         axml_analysis = AXML(path + os.path.sep +"AndroidManifest.xml")
@@ -61,8 +80,8 @@ class CheckProtect():
                 self.protectflag = self.protectflag + self.protectflag_dict[key]
 
         if file_name.has_key("key.dat") and all_dir_name.has_key("apkprotect.com"):
-            if self.protectflag == "" or (u"APKProtect加固" not in self.protectflag):
-                self.protectflag = self.protectflag + u"APKProtect加固"
+            if self.protectflag == "" or (_translate("ProtectDictionary", "APKProtect加固", None) not in self.protectflag):
+                self.protectflag = self.protectflag + _translate("ProtectDictionary", "APKProtect加固", None)
 
         if self.protectflag != "":
             return self.protectflag
@@ -76,10 +95,10 @@ class CheckProtect():
                     self.flag  = 1
 
             if self.protectflag == "" and self.flag == 1:
-                self.protectflag = u"疑似未知加密"
+                self.protectflag = _translate("ProtectDictionary", "疑似未知加密", None)
 
             if self.protectflag == "":
-                self.protectflag = u"该APK未加密"
+                self.protectflag = _translate("ProtectDictionary", "该APK未加密", None)
 
             return self.protectflag
 
