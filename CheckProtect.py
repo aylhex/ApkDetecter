@@ -30,7 +30,9 @@ class CheckProtect():
             "ijiami.dat": _translate("ProtectDictionary", "该APK已加固=>腾讯加固(Ijiami)", None),
             "libddog.so": _translate("ProtectDictionary", "该APK已加固=>娜迦加固", None),
             "libmobisec.so": _translate("ProtectDictionary", "该APK已加固=>阿里加固", None),
-            "libbaiduprotect.so": _translate("ProtectDictionary", "该APK已加固=>百度加固", None)
+            "libbaiduprotect.so": _translate("ProtectDictionary", "该APK已加固=>百度加固", None),
+            "libmd.so": _translate("ProtectDictionary", "该APK已加固=>Medusa", None),
+            "LIAPPClient.sc": _translate("ProtectDictionary", "该APK已加固=>LIAPP", None)
             }
 
     def getactivity(self, path):

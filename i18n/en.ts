@@ -323,19 +323,29 @@
         <translation>APK is Packed =&gt; Ijiami</translation>
     </message>
     <message>
-        <location filename="CheckProtect.py" line="89"/>
+        <location filename="CheckProtect.py" line="91"/>
         <source>APKProtectå åº</source>
         <translation>APKProtected (potentially only with bad code injected)</translation>
     </message>
     <message>
-        <location filename="CheckProtect.py" line="103"/>
+        <location filename="CheckProtect.py" line="105"/>
         <source>çä¼¼æªç¥å å¯</source>
         <translation>Potentially Unknown Protector Used</translation>
     </message>
     <message>
-        <location filename="CheckProtect.py" line="106"/>
+        <location filename="CheckProtect.py" line="108"/>
         <source>è¯¥APKæªå å¯</source>
         <translation>No Protections Detected</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="35"/>
+        <source>è¯¥APKå·²å åº=&gt;Medusa</source>
+        <translation>APK is Packed =&gt; Medusa</translation>
+    </message>
+    <message>
+        <location filename="CheckProtect.py" line="36"/>
+        <source>è¯¥APKå·²å åº=&gt;LIAPP</source>
+        <translation>APK is Packed =&gt; LIAPP</translation>
     </message>
 </context>
 </TS>
