@@ -28,7 +28,10 @@ class ApkDetecterForm(QtGui.QMainWindow):
         self.dexheader = {}
         self.loadfile_path = ""
         #self.unpackDir = tempfile.mktemp()
-        self.unpackDir = ur"d:\APK"
+        self.unpackDir = ur"c:\APK"
+        isExists = os.path.exists(self.unpackDir)
+        if not isExists:
+            os.makedirs(ur"c:\APK")
 
         self.ui = Ui_APKDetecter()
         self.ui.setupUi(self)
@@ -116,6 +119,7 @@ class ApkDetecterForm(QtGui.QMainWindow):
                 os.remove(filePath)
             elif os.path.isdir(filePath):
                 shutil.rmtree(filePath, True)
+        shutil.rmtree(delDir)
 
 
 
