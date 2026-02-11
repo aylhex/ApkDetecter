@@ -1,4 +1,4 @@
-# ApkDetecter - 现代化 APK/IPA 分析工具
+# ApkDetecter - APK/IPA 查壳分析工具
 
 ApkDetecter 是一款功能强大的跨平台工具，用于分析 Android (APK) 和 iOS (IPA) 应用程序。它提供了一个图形界面，用于查看应用信息、检查是否加壳，并对敏感数据进行深度扫描。
 
