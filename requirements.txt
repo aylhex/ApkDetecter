@@ -1,0 +1,6 @@
+PyQt5
+cryptography
+# winddows support
+lxml
+win32_setctime
+# pyinstaller # Recommended for Windows builds

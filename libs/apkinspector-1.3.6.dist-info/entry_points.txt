@@ -1,0 +1,3 @@
+[console_scripts]
+apkInspector=apkInspectorCLI.main:main
+

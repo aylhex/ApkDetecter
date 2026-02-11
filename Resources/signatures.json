@@ -1,0 +1,122 @@
+{
+  "signatures": [
+    {
+      "name": "360加固 (Qihoo 360)",
+      "rules": [
+        { "type": "file", "pattern": "libjiagu.so" },
+        { "type": "file", "pattern": "libprotectClass.so" },
+        { "type": "file", "pattern": ".appkey", "match": "endswith" }
+      ]
+    },
+    {
+      "name": "腾讯御安全 (Tencent Legu)",
+      "rules": [
+        { "type": "file", "pattern": "libshell.so" },
+        { "type": "file", "pattern": "libtup.so" },
+        { "type": "file", "pattern": "mix.dex" },
+        { "type": "file", "pattern": "libshella-", "match": "startswith" }
+      ]
+    },
+    {
+      "name": "梆梆加固 (Bangcle)",
+      "rules": [
+        { "type": "file", "pattern": "libsecexe.so" },
+        { "type": "file", "pattern": "libsecmain.so" },
+        { "type": "file", "pattern": "libSecShell.so" },
+        { "type": "file", "pattern": "libDexHelper.so" },
+        { "type": "file", "pattern": "libbangcle.so" }
+      ]
+    },
+    {
+      "name": "爱加密 (Ijiami)",
+      "rules": [
+        { "type": "file", "pattern": "libexec.so" },
+        { "type": "file", "pattern": "ijiami.dat" },
+        { "type": "file", "pattern": "libexecmain.so" },
+        { "type": "file", "pattern": "ijiami.ajm" }
+      ]
+    },
+    {
+      "name": "阿里加固 (Alibaba)",
+      "rules": [
+        { "type": "file", "pattern": "libmobisec.so" },
+        { "type": "file", "pattern": "libaliupdates.so" },
+        { "type": "file", "pattern": "aliprotect.dat" },
+        { "type": "file", "pattern": "libsgmain.so" },
+        { "type": "file", "pattern": "libsgsecuritybody.so" }
+      ]
+    },
+    {
+      "name": "百度加固 (Baidu)",
+      "rules": [
+        { "type": "file", "pattern": "libbaiduprotect.so" },
+        { "type": "file", "pattern": "baiduprotect.jar" }
+      ]
+    },
+    {
+      "name": "娜迦加固 (Naga)",
+      "rules": [
+        { "type": "file", "pattern": "libddog.so" },
+        { "type": "file", "pattern": "libchaosvmp.so" },
+        { "type": "file", "pattern": "libfdog.so" }
+      ]
+    },
+    {
+      "name": "网秦加固 (NetQin)",
+      "rules": [
+        { "type": "file", "pattern": "libnqshield.so" }
+      ]
+    },
+    {
+      "name": "通付盾加固 (PayEgis)",
+      "rules": [
+        { "type": "file", "pattern": "libNSaferOnly.so" },
+        { "type": "file", "pattern": "libegis.so" }
+      ]
+    },
+    {
+      "name": "几维安全 (Kiwi)",
+      "rules": [
+        { "type": "file", "pattern": "libkcodemon.so" },
+        { "type": "file", "pattern": "libkwscmm.so" },
+        { "type": "file", "pattern": "libkwscr.so" }
+      ]
+    },
+    {
+      "name": "顶象加固 (DingXiang)",
+      "rules": [
+        { "type": "file", "pattern": "libdx-risk.so" },
+        { "type": "file", "pattern": "libx3g.so" }
+      ]
+    },
+    {
+      "name": "网易易盾 (NetEase)",
+      "rules": [
+        { "type": "file", "pattern": "libnesec.so" }
+      ]
+    },
+    {
+      "name": "APKProtect",
+      "rules": [
+        { "type": "file", "pattern": "libAPKProtect.so" },
+        { "type": "combined", "conditions": [
+            { "type": "file", "pattern": "key.dat" },
+            { "type": "path", "pattern": "apkprotect.com", "match": "contains" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "U8SDK",
+      "rules": [
+        { "type": "file", "pattern": "libu8.so" }
+      ]
+    },
+    {
+        "name": "Medusah (Pangu)",
+        "rules": [
+            { "type": "file", "pattern": "libmd.so" }
+        ]
+    }
+  ]
+}
